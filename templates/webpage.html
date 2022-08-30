@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Bank Marketing Success Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="D:\ML Projects\Bank Marketing Effectiveness Prediction\static\css\style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+</head>
+
+<body>
+ <div class="login">
+    <center><h2>Bank Marketing Effectiveness Predictor</h2></center>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <center><form action="{{url_for('predict')}}"method="post">
+
+        <input type="Number" name="Age" placeholder="Customer Age" required="required" min="18" max="95"/>
+
+        <input id = "bal" type="Number" name="Balance" placeholder="Customer Account Balance" required="required" min="-8019" max="102127"/>
+
+
+        <input list="job_type" name = "Job_type" placeholder="Client's Job" required="required"  />
+        <datalist id="job_type">
+            <option value="admin.">
+            <option value = "blue-collar">
+            <option value="entrepreneur">
+            <option value="housemaid">
+            <option value="management">
+            <option value="retired">
+            <option value="self-employed">
+            <option value="services">
+            <option value="student">
+            <option value="technician">
+            <option value="unemployed">
+            <option value="unknown">
+        </datalist>
+
+        <input list="last_month" name = "Month" placeholder="Last month of contact" required="required"  />
+        <datalist id="last_month">
+            <option value="jan">
+            <option value = "feb">
+            <option value="mar">
+            <option value="apr">
+            <option value="may">
+            <option value="jun">
+            <option value="jul">
+            <option value="aug">
+            <option value="sep">
+            <option value="oct">
+            <option value="nov">
+            <option value="dec">
+        </datalist>
+
+        <input list="marital_status" name = "Marital_Status" placeholder="Marital Status" required="required" />
+        <datalist id="marital_status">
+            <option value="single">
+            <option value="married">
+            <option value="divorced">
+        </datalist>
+
+        <input list="education" name = "Education" placeholder="Education" required="required" />
+        <datalist id="education">
+            <option value="primary">
+            <option value="secondary">
+            <option value="tertiary">
+            <option value="unknown">
+        </datalist>
+
+        
+
+        <input list="default" name = "Default" placeholder="Credit in default" required="required" />
+        <datalist id="default">
+            <option value="yes">
+            <option value="no">
+        </datalist>
+        
+        
+        <input list="housing" name = "Housing" placeholder="Housing Loan" required="required" />
+        <datalist id="housing">
+            <option value="yes">
+            <option value="no">
+        </datalist>
+        
+        
+        <input list="loan" name = "Loan" placeholder="Personal Loan" required="required" />
+        <datalist id="loan">
+            <option value="yes">
+            <option value="no">
+        </datalist>
+
+        <input list="contact" name = "Contact" placeholder="Communication type" required="required" />
+        <datalist id="contact">
+            <option value="cellular">
+            <option value="telephone">
+            <option value="unknown">
+        </datalist>
+
+        <input type="Number" name="Day" placeholder="Last contact day" required="required" min="1" max="31"/>        
+
+        <input id="c1" type="Number" name="Contact_Campaign" placeholder="No of contacts during campaign" required="required" min="1" max="63"/>
+
+        <input type="Number" name="Before_Campaign" placeholder="No of contacts before campaign" required="required" min="0" max="275"/>
+
+
+        <input list="prev_outcome" name = "Prev_outcome" placeholder="Previous Campaign Outcome" required="required" />
+        <datalist id="prev_outcome">
+            <option value="success">
+            <option value="failure">
+            <option value="unknown">
+            <option value= "other">
+        </datalist>
+
+
+        <input type="Number" name="Pdays" placeholder=" Days after last contact from previous campaign" required="required" min="-1" max="871"/>
+
+        <button type="button" class="btn btn-primary btn-block btn-large"  id="test" onclick=js1>Predict</button>
+        <br>
+        <br>
+        <span id="h2"><center>{{ prediction_text }}</center></span>
+    </form></center>
+
+ 
+
+ </div>
+
+</body>
+</html>
