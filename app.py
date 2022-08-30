@@ -4,9 +4,9 @@ import pandas as pd
 import joblib
 
 app = Flask(__name__)
-model = joblib.load(r'D:\ML Projects\Bank Marketing Effectiveness Prediction\model.pkl')
-job_mapping = joblib.load(r'D:\ML Projects\Bank Marketing Effectiveness Prediction\job_mapping.pkl')
-scaler = joblib.load(r'D:\ML Projects\Bank Marketing Effectiveness Prediction\scaler.pkl')
+model = joblib.load('model.pkl')
+job_mapping = joblib.load('job_mapping.pkl')
+scaler = joblib.load('scaler.pkl')
 
 
 
