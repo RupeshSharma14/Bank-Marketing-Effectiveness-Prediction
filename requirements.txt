@@ -28,3 +28,4 @@ pandas==1.4.3
 python-dateutil==2.8.2
 pytz==2022.2.1
 yellowbrick==1.5
+xgboost==1.6.2
