@@ -9,7 +9,6 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 <link rel="stylesheet" href="D:\ML Projects\Bank Marketing Effectiveness Prediction\static\css\style.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 
@@ -119,7 +118,7 @@
 
         <input type="Number" name="Pdays" placeholder=" Days after last contact from previous campaign" required="required" min="-1" max="871"/>
 
-        <button type="button" class="btn btn-primary btn-block btn-large"  id="test" onclick=js1>Predict</button>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
         <br>
         <br>
         <span id="h2"><center>{{ prediction_text }}</center></span>
