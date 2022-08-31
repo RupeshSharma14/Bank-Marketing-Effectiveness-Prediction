@@ -48,6 +48,8 @@ def OneHot_encoding(X, features):
     for col in col_names:
         if col not in x.columns:
             x[col] = 0
+            
+    x = x[col_names]
     
     return x
 
