@@ -35,6 +35,22 @@ def onehot_encoding(X, features):
   x = pd.get_dummies(X, columns = features, drop_first = True)
   return x
 
+def OneHot_encoding(X, features):
+    x = pd.get_dummies(X, columns = features)
+    col_names = ['age', 'job', 'education', 'balance', 'day', 'campaign', 'pdays',
+             'previous', 'month_sin', 'month_cos', 'marital_married',
+             'marital_single', 'default_yes', 'housing_yes', 'loan_yes',
+             'poutcome_other', 'poutcome_success', 'poutcome_unknown',
+             'contact_telephone', 'contact_unknown']
+    for col in x.columns:
+        if col not in col_names:
+            x.drop(columns = col, inplace = True)
+    for col in col_names:
+        if col not in x.columns:
+            x[col] = 0
+    
+    return x
+
 def handling_outliers(row, column_name, max_thresh, min_thresh = -1):
   if row[column_name] <= min_thresh:
     return min_thresh
